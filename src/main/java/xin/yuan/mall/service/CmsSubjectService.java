@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CmsSubjectService {
     List<CmsSubject> listAll();
+
+    List<CmsSubject> list(String keyWord, Integer pageNum, Integer pageSize);
 }

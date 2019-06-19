@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("xin.yuan.mall.mbg.mapper")
+@MapperScan({"xin.yuan.mall.mbg.mapper","xin.yuan.mall.dao"})
 public class MallApplication {
 
     public static void main(String[] args) {
