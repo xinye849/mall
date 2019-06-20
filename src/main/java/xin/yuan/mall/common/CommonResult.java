@@ -49,9 +49,9 @@ public class CommonResult<T> {
      * 失败返回结果
      * @param errorCode 错误码
      */
-/*    public static <T> CommonResult<T> failed(IErrorCode errorCode) {
+   public static <T> CommonResult<T> failed(IErrorCode errorCode) {
         return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
-    }*/
+    }
 
     /**
      * 失败返回结果
@@ -64,9 +64,9 @@ public class CommonResult<T> {
     /**
      * 失败返回结果
      */
-  /*  public static <T> CommonResult<T> failed() {
+    public static <T> CommonResult<T> failed() {
         return failed(ResultCode.FAILED);
-    }*/
+    }
 
     /**
      * 参数验证失败返回结果
