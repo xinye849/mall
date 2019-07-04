@@ -1,7 +1,6 @@
 package xin.yuan.mall.service;
 
-import xin.yuan.mall.dto.OmsOrderDeliveryParam;
-import xin.yuan.mall.dto.OmsOrderQueryParam;
+import xin.yuan.mall.dto.*;
 import xin.yuan.mall.mbg.model.OmsOrder;
 
 import java.util.List;
@@ -12,4 +11,14 @@ public interface OmsOrderService {
     int delivery(List<OmsOrderDeliveryParam> deliveryParamList);
 
     int close(List<Long> ids, String note);
+
+    int delete(List<Long> ids);
+
+    OmsOrderDetail detail(Long id);
+
+    int updateReceiverInfo(OmsReceiverInfoParam receiverInfoParam);
+
+    int updateMoneyInfo(OmsMoneyInfoParam moneyInfoParam);
+
+    int updateNote(Long id, String note, Integer status);
 }

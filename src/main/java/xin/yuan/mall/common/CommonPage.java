@@ -1,14 +1,12 @@
 /**
  * FileName: CommonPage
- * Author:   Dragon
+ * Author:   knight
+ * 公共页面
  * Date:     2019/6/14 10:42
  * History:
  */
 package xin.yuan.mall.common;
-
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-
 import java.util.List;
 
 public class CommonPage<T> {
