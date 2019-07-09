@@ -6,8 +6,6 @@
  */
 package xin.yuan.mall.service.impl;
 
-import cn.hutool.Hutool;
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.utils.BinaryUtil;
@@ -19,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import xin.yuan.mall.dto.OssCallbackParam;
+import xin.yuan.mall.dto.OssCallbackResult;
 import xin.yuan.mall.dto.OssPolicyResult;
 import xin.yuan.mall.service.OssService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -84,6 +84,19 @@ public class OssServiceImpl implements OssService {
         }catch (Exception e){
             LOGGER.error("签名生成失败", e);
         }
+        return result;
+    }
+
+    @Override
+    public OssCallbackResult callBack(HttpServletRequest request) {
+        OssCallbackResult result = new OssCallbackResult();
+        String filename = request.getParameter("filename");
+        filename = "http://".concat(ALIYUN_OSS_BUCKET_NAME).concat(".").concat(ALIYUN_OSS_ENDPOINT).concat("/").concat(filename);
+        result.setFilename(filename);
+        result.setSize(request.getParameter("size"));
+        result.setMimeType(request.getParameter("mimeType"));
+        result.setWidth(request.getParameter("width"));
+        result.setHeight(request.getParameter("height"));
         return result;
     }
 }
